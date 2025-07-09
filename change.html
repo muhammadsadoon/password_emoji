@@ -139,16 +139,11 @@
                     arrfiltur.push(arg[j] + arg[j + 1]);
                 }
             }
-            console.log(arrfiltur)
             var arrOfEmojiCode = ['😀', '😁', '😂', '🤣', '😃', '😄', '😅', '😆', '😉', '😊', '😋', '😎', '😍', '😘', '🥰', '😗', '😙', '🥳', '😚', '🙂', '🤗', '🤩', '🤔', '🤨', '😐', '😑', '😶', '🙄', '😏', '😣', '😥', '😮', '🤐', '😯', '😪', '😫', '🥱', '😴', '😌', '😛', '😜', '😝', '🤤', '😒', '😓', '😔', '😕', '🙃', '🤑', '😲', '🙁', '😖', '🤬', '🤭', '😈', '👿', '👹', '👺', '💀', '👻', '👽', '👾', '💩','😺','😸','😹','😻','😼','😽','🙀','😿','😾','🥴','😰','🥶','😱','😭','🤯','🧠','🦴','🥵'];
             var abcChar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0','!','@','#','$','%','^','&','*','(',')','-','+',',','.','"',"'",':',';'];
             var arr = [];
-            console.log(arrOfEmojiCode.length)
-            console.log(abcChar.length)
-            console.log(arr)
             for (let i = 0; i < arrfiltur.length; i++) {
                 if (arrOfEmojiCode.indexOf(arrfiltur[i]) !== -1) {
-                    console.log(abcChar[(arrOfEmojiCode.indexOf(arrfiltur[i]))])
                     arr.push(abcChar[(arrOfEmojiCode.indexOf(arrfiltur[i]))]);
                 } else {
                     return false;
@@ -161,8 +156,8 @@
                 var result = privacyCode(document.getElementById("userInput").value);
                 if (result == false) {
                     document.querySelector("#display").innerHTML = "Invalid Text...";
-                    // document.querySelector("textarea").value = "";
-                    // document.querySelector("textarea").focus()
+                    document.querySelector("textarea").value = "";
+                    document.querySelector("textarea").focus()
                     setTimeout(() => {
                         document.querySelector("#display").innerHTML = "";
                     }, 2000)
@@ -174,7 +169,6 @@
                 document.querySelector("textarea").focus()
                 setTimeout(() => {
                     document.querySelector("#display").innerHTML = "";
-
                 }, 2000)
             }
         }
