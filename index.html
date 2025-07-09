@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>password inhancer -scurity</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+    }
+
+    .container {
+        height: 100vh;
+        width: 100vw;
+        background: #b3ff00;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        padding: 50px;
+    }
+
+    h2 {
+        font-weight: 200;
+        font-size: 50px;
+    }
+
+    h2::after {
+        animation: emojiAnimate ease-in 2s infinite;
+        content: "😀";
+    }
+
+    textarea {
+        height: 150px;
+        width: 40vw;
+        min-width: 200px;
+        border-left: 2px solid #000;
+        border-bottom: 2px solid #000;
+        border-right: none;
+        border-top: none;
+        padding: 10px 20px;
+        border-radius: 0px 10px 0px 0px;
+        font-size: 20px;
+    }
+
+    textarea:focus {
+        outline: 0;
+    }
+
+    button {
+        height: 50px;
+        width: 100px;
+        border: 2px solid #000;
+        border-radius: 10px;
+    }
+
+    button:focus {
+        outline: 0;
+    }
+
+    button:nth-child(5) {
+        width: auto;
+        padding: 5px;
+    }
+
+    @keyframes emojiAnimate {
+        0% {
+            content: "😁";
+        }
+
+        10% {
+            content: "😂";
+        }
+
+        20% {
+            content: "🥰";
+        }
+
+        30% {
+            content: "🤩";
+        }
+
+        40% {
+            content: "😎";
+        }
+
+        50% {
+            content: "😋";
+        }
+
+        60% {
+            content: "🤑";
+        }
+
+        70% {
+            content: "🥳";
+        }
+
+        80% {
+            content: "😴";
+        }
+
+        90% {
+            content: "🤪";
+        }
+
+        100% {
+            content: "😁";
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h2>User Privacy Code</h2>
+        <textarea type="text" id="userInput" placeholder="Type text here..."></textarea>
+        <p id="display"></p>
+        <button onclick="convertEmoji()">change now</button>
+        <button id="changeFormat" onclick="changePage()"> Change Format <br> (Special Code to text)</button>
+    </div>
+    <script>
+        function privacyCode(arg) {
+            var arrOfEmojiCode = ['😀', '😁', '😂', '🤣', '😃', '😄', '😅', '😆', '😉', '😊', '😋', '😎', '😍', '😘', '🥰', '😗', '😙', '🥳', '😚', '🙂', '🤗', '🤩', '🤔', '🤨', '😐', '😑', '😶', '🙄', '😏', '😣', '😥', '😮', '🤐', '😯', '😪', '😫', '🥱', '😴', '😌', '😛', '😜', '😝', '🤤', '😒', '😓', '😔', '😕', '🙃', '🤑', '😲', '🙁', '😖', '🤬', '🤭', '😈', '👿', '👹', '👺', '💀', '👻', '👽', '👾', '💩','😺','😸','😹','😻','😼','😽','🙀','😿','😾','🥴','😰','🥶','😱','😭','🤯','🧠','🦴','🥵'];
+            var abcChar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0','!','@','#','$','%','^','&','*','(',')','-','+',',','.','"',"'",':',';'];
+            var arr = [];
+            for (let i = 0; i < arg.length; i++) {
+                if (abcChar.indexOf(arg[i]) !== -1) {
+                    arr.push(arrOfEmojiCode[(abcChar.indexOf(arg[i]))]);
+                } else {
+                    return false;
+                }
+            }
+            console.log(arrOfEmojiCode.length);
+            console.log(abcChar.length);
+            return arr.join("");
+        }
+        function convertEmoji() {
+            if (document.getElementById("userInput").value !== "") {
+                var result = privacyCode(document.getElementById("userInput").value);
+                if (result == false) {
+                    document.querySelector("#display").innerHTML = "Invalid Text...";
+                    document.querySelector("textarea").value = "";
+                    document.querySelector("textarea").focus()
+                    setTimeout(() => {
+                        document.querySelector("#display").innerHTML = "";
+                    }, 2000)
+                } else {
+                    document.querySelector("#display").innerHTML = result;
+                }
+            } else {
+                document.querySelector("#display").innerHTML = "inter the value in input field...";
+                document.querySelector("textarea").focus()
+                setTimeout(() => {
+                    document.querySelector("#display").innerHTML = "";
+                }, 2000)
+            }
+        }
+        function changePage() {
+            window.location.href = "D:/javaScript%20Projects/passwrod_inhancer/change.html";
+        }
+    </script>
+</body>
+
+</html>
